@@ -5,9 +5,7 @@ for j = 1:1000
 clearvars
 h=0.001;
 x = zeros(1,500);
-y = zeros(1,500);
 t = zeros(1,500);
-dx = zeros(1,500);
 x(1)=-1;
 
 for i = 1:500
@@ -15,21 +13,18 @@ for i = 1:500
     x(i+1)=x(i)+funcdx(x(i), t(i))*h;
 end 
 end
+toc
 figure(1)
 plot(t, x)
 title('Eulers');
 fprintf('Eulers:')
-x;
-toc
 %% 4th order Runge-Kutta: Example
 tic
 for j = 1:1000
 clearvars
 h=0.001;
 x = zeros(1,500);
-y = zeros(1,500);
 t = zeros(1,500);
-dx = zeros(1,500);
 x(1)=-1;
 for i = 1:500
     k1=funcdx(x(i), t(i));
@@ -41,9 +36,8 @@ for i = 1:500
     t(i+1)=t(i)+h;
 end
 end
-figure(2)
-plot(t,x)
-title('RK4');
-fprintf('RK4:')
-x;
 toc
+figure(1)
+plot(t, x)
+title('Eulers');
+fprintf('Eulers:')
